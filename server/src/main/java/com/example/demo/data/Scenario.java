@@ -7,9 +7,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- * Created by sondo on 04/04/2018.
- */
 @XmlRootElement
 public class Scenario {
 
@@ -22,8 +19,6 @@ public class Scenario {
     @XmlElement
     private
     ArrayList<Action> data;
-
-
     private TestResult testResult;
 
 

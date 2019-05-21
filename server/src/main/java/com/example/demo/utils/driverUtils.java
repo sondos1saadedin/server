@@ -136,4 +136,9 @@ public class driverUtils {
     }
 
 
+    public static WebElement findElementByName(WebDriver driver, String textUrl) {
+        WebElement element = null;
+        element = getBy(driver, By.name(textUrl));
+        return  element;
+    }
 }

@@ -10,14 +10,14 @@ import org.openqa.selenium.WebElement;
  */
 public class SubmitForm extends TestItem {
     @Override
-    public void execute(WebDriver driver, Action action, TestResult result) {
+    public void execute(Scenario scenario, WebDriver driver, Action action, TestResult result) {
 
         String formId = action.getName();
         WebElement element;
-        if(action.getSelectBy().equals("class")){
+        if (action.getSelectBy().equals("class")) {
             element = driverUtils.findElementByClass(driver, formId);
-        }else {
-             element = driverUtils.findElementByAll(driver, formId);
+        } else {
+            element = driverUtils.findElementByAll(driver, formId);
         }
         if (element == null) {
             result.addTestMessage(TestResult.FAIL_MESSAGE, "can not find a form with this id " + formId);

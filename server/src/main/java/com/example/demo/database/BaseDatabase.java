@@ -1,6 +1,5 @@
 package com.example.demo.database;
 
-import com.google.api.client.googleapis.testing.TestUtils;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -8,21 +7,18 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.InputStreamReader;
 
 /**
  * Created by sondo on 02/03/2018.
  */
-public class TestDatabase {
+public class BaseDatabase {
 
     private static FirebaseDatabase mDatabase;
 
     public static FirebaseAuth getmAuth() {
-        if (testDatabase == null) {
-            testDatabase = new TestDatabase();
+        if (baseDatabase == null) {
+            baseDatabase = new BaseDatabase();
         }
         return mAuth;
     }
@@ -32,9 +28,9 @@ public class TestDatabase {
     private static FirebaseApp firebaseApp;
 
 
-    private static TestDatabase testDatabase;
+    private static BaseDatabase baseDatabase;
 
-    private TestDatabase() {
+    private BaseDatabase() {
         try {
             FileInputStream serviceAccount = new FileInputStream("C:\\Users\\sondo\\IdeaProjects\\spring-boot-react-example-master\\server\\src\\main\\resources\\service-account.json");
 
@@ -66,8 +62,8 @@ public class TestDatabase {
     }
 
     public static FirebaseDatabase getmDatabase() {
-        if (testDatabase == null) {
-            testDatabase = new TestDatabase();
+        if (baseDatabase == null) {
+            baseDatabase = new BaseDatabase();
         }
         return mDatabase;
     }

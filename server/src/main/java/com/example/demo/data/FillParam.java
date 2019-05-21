@@ -5,14 +5,11 @@ import com.example.demo.utils.driverUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-/**
- * Created by sondo on 23/04/2018.
- */
 public class FillParam extends TestItem {
 
 
     @Override
-    public void execute(WebDriver driver, Action action, TestResult result) {
+    public void execute(Scenario scenario, WebDriver driver, Action action, TestResult result) {
         String value = action.getValue();
 
         WebElement element;

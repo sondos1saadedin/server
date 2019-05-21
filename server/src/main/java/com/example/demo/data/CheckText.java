@@ -9,12 +9,15 @@ import org.openqa.selenium.WebDriver;
  */
 public class CheckText extends  TestItem {
     @Override
-    public void execute(WebDriver driver, Action action, TestResult result) {
+    public void execute(Scenario scenario, WebDriver driver, Action action, TestResult result) {
         boolean testb = driverUtils.verify(driver, action.getValue());
-//        if (testb) {
-//            result.log(LogStatus.PASS, "Found this word " + ((Text) testItem).getWord());
-//        } else {
-//            test.log(LogStatus.FAIL, "can not find this word " + ((Text) testItem).getWord());
-//        }
+        if (testb) {
+            result.addTestMessage(TestResult.PASS_MESSAGE,
+                    "Found this word " + action.getValue());
+            result.addPassedCase();
+        } else {
+            result.addTestMessage(TestResult.FAIL_MESSAGE, "can not find this word " + action.getValue());
+            result.addFailedCase();
+        }
     }
 }
